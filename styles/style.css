@@ -38,11 +38,10 @@ body{
 }
 
 .container i{
-    cursor:pointer;
-
+    cursor:pointer;  
 }
 
-.topBar, .progress-area .song-timer ul li {
+.topBar, .progress-area .song-timer, .controls,ul li {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -126,7 +125,7 @@ body{
 }
 
 .progress-bar::before{
-
+    
     content: " ";
     position: absolute;
     height: 12px;
@@ -142,3 +141,15 @@ body{
     transition: opacity 0.2s ease;
 };
 
+.progress-area .song-timer{
+    margin-top:2px;
+}
+
+.song-timer span{
+    font-size: 13px;
+    color: #ffff;
+}
+
+.controls{
+    margin: 30px;
+}
