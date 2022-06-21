@@ -70,5 +70,46 @@ body{
     overflow:hidden;
     margin-top: 25px;
     border-radius: 50%;
-    box-shadow: 0 0 0 5px #ffff; 
+    box-shadow: 0 0 0 5px #ffff,
+    0 0 2px #ffff,
+    13px 13px 20px #31313163,
+    -10px -10px 20px #e6f6ff; 
 }
+
+.img-area img{
+    width: 100%;
+    height:100%;
+    object-fit: cover;
+}
+
+.song-details{
+    text-align: center;
+    margin: 30px;
+}
+
+.song-details p {
+    color:#ffff
+}
+
+.song-details .name{
+    
+    font-size: 21px;
+}
+
+.song-details .artist{
+    
+    font-size: 15px;
+    opacity: 0.9;
+    line-height: 35px;
+
+
+}
+
+.progress-area{
+    height: 6px;
+    width:100%;
+    border-radius: 50px;
+    background:#f0f0f081;
+}
+
+
