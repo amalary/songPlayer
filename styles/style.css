@@ -52,3 +52,23 @@ body{
     font-size:30px;
     color:white; 
 }
+
+.topBar i:first-child {
+    margin-left: 7px;
+    font-size:22px
+}
+
+.topBar span{
+    font-size:18px;
+    margin-left: -3px;
+    color:#ffff;
+}
+
+.img-area{
+    width:100%;
+    height: 280px;
+    overflow:hidden;
+    margin-top: 25px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 5px #ffff; 
+}
