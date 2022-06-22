@@ -214,7 +214,10 @@ ul li {
     
     position:absolute;
     width: 100%;
-    bottom:0;
+    bottom:-55%;
+    opacity: 0;
+    pointer-events: none;
+
     left: 0;
     box-shadow: 0px -5px 10px rgba(0,0,0,0.1);
     z-index: 5;
@@ -225,6 +228,12 @@ ul li {
     linear-gradient(to top left, rgba(255,23,23), transparent),
     linear-gradient(to right, rgba(0,183,255), transparent);
     background-blend-mode:screen;
+    transition: all 0.15s ease-in-out;
+}
+.music-list .show{
+    bottom: 0;
+    opacity: 1;
+    pointer-events: auto;
 }
 .music-list ul{
     margin-top: 10px 0px;
