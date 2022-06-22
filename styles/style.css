@@ -151,7 +151,7 @@ body{
 }
 
 .controls{
-    margin: 70px 0 5px 0;
+    margin: 40px 0 5px 0;
 }
 
 .controls i{
@@ -162,6 +162,29 @@ body{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+.controls .play-pause{
+    height: 54px;
+    width: 54px;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 0 2px#fff, 
+    8px 8px 8px #ff5e66,
+    -3px -3px 15px #f0ecec;
+}
+.play-pause::before{
+
+    position:absolute;
+    content: ""; 
+    height: 43px;
+    width:43px; 
+    background: transparent;
+    border: 3px solid white;
+    border-radius: inherit;
+
+}
 .controls i:nth-child(2),
 .controls i:nth-child(4){
     font-size: 43px;
@@ -170,10 +193,12 @@ body{
 .controls #prev{
     margin-right: -13px;
     font-size: 38px;
-
+    
 }; 
 
 .controls #next{
     margin-left: -13px;
     font-size: 38px;
 }; 
+
+
