@@ -3,7 +3,7 @@ musicImg = container.querySelector(".img-area img"),
 musicName = container.querySelector(".song-details .name"),
 musicArtist = container.querySelector(".song-details .artist");
 
-let musicIndex = 3;
+let musicIndex = 5;
 
 window.addEventListener("load", ()=> {
 
@@ -15,5 +15,9 @@ window.addEventListener("load", ()=> {
 function loadMusic(indexNumb){
 
     musicName.innerText = allMusic[indexNumb - 1].name
+    musicArtist.innerText = allMusic[indexNumb - 1].artist
+    musicImg.src = `images/${allMusic[indexNumb - 1].img}`
 
 }
+
+

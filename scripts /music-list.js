@@ -36,7 +36,7 @@ let allMusic = [
 {
     name:"Runaway",
     artist:"Kanye West",
-    img:"kanyeCoverArt.jpg",
+    img:"kanyeCover.jpg",
     src:"Runaway.mp3",
 
 }
