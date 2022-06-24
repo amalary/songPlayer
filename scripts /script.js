@@ -1,10 +1,10 @@
 const container = document.querySelector(".container"),
 musicImg = container.querySelector(".img-area img"),
 musicName = container.querySelector(".song-details .name"),
-musicArtist = container.querySelector(".song-details .artist");
+musicArtist = container.querySelector(".song-details .artist"),
 musicAudio = container.querySelector("#main-audio"),
-playPauseBtn = container.querySelector(".play-pause");
-nextBtn = container.querySelector("#next");
+playPauseBtn = container.querySelector(".play-pause"),
+nextBtn = container.querySelector("#next"),
 prevBtn = container.querySelector("#prev");
 
 let musicIndex = 2;
@@ -31,10 +31,20 @@ function playMusic(){
     mainAudio.play()
 }
 
+// Music paused function 
+
 function pauseMusic(){
-    container.classList.add("paused")
+    container.classList.remove("paused")
     playPauseBtn.querySelector("i").innerText = "play_arrow";
     mainAudio.pause()
+};
+
+// Next music function 
+
+function nextMusic(){
+    musicIndex++;
+    loadMusic(musicIndex);
+    playMusic()
 }
 
 // Play or music button event 
@@ -44,13 +54,18 @@ playPauseBtn.addEventListener("click", ()=>{
     const isMusicPaused = container.classList.contains("paused");
 
     isMusicPaused ? pauseMusic() : playMusic(); 
+    
 });
 
 
 // Next button event 
 
-playPauseBtn = container.querySelector(".play-pause");
 
+
+nextBtn.addEventListener("click", ()=>{
+    nextMusic(); 
+
+});
 
 
 
