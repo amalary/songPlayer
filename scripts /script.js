@@ -41,6 +41,7 @@ function pauseMusic(){
     mainAudio.pause()
 };
 
+
 // Next music function 
 
 function nextMusic(){
@@ -48,7 +49,15 @@ function nextMusic(){
     musicIndex > allMusic.length ? musicIndex = 1 : musicIndex = musicIndex
     loadMusic(musicIndex);
     playMusic()
-}
+};
+// Prev music function 
+
+function nextMusic(){
+    musicIndex--;
+    musicIndex < 1 ? musicIndex = allMusic.length : musicIndex = musicIndex
+    loadMusic(musicIndex);
+    playMusic()
+};
 
 // Play or music button event 
 
@@ -63,12 +72,19 @@ playPauseBtn.addEventListener("click", ()=>{
 
 // Next button event 
 
-
-
 nextBtn.addEventListener("click", ()=>{
     nextMusic(); 
 
 });
+
+// Pre button 
+
+
+prevBtn.addEventListener("click", ()=>{
+    nextMusic(); 
+
+});
+
 
 
 
