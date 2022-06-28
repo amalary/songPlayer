@@ -7,7 +7,9 @@ playPauseBtn = container.querySelector(".play-pause"),
 nextBtn = container.querySelector("#next"),
 prevBtn = container.querySelector("#prev");
 
-let musicIndex = 2;
+let musicIndex = 1;
+
+
 
 window.addEventListener("load", ()=> {
 
@@ -43,6 +45,7 @@ function pauseMusic(){
 
 function nextMusic(){
     musicIndex++;
+    musicIndex > allMusic.length ? musicIndex = 1 : musicIndex = musicIndex
     loadMusic(musicIndex);
     playMusic()
 }
@@ -54,7 +57,7 @@ playPauseBtn.addEventListener("click", ()=>{
     const isMusicPaused = container.classList.contains("paused");
 
     isMusicPaused ? pauseMusic() : playMusic(); 
-    
+
 });
 
 
