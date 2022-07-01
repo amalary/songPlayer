@@ -33,13 +33,15 @@ function loadMusic(IndexNum){
 
 function playMusic(){
     container.classList.add('paused');
+    playpaueBtn.querySelector("i").innerText = "pause"
     mainAudio.play()
 };
 
 // Playing music function 
 
 function pauseMusic(){
-    container.classList.add('paused');
+    container.classList.remove('paused');
+    playpaueBtn.querySelector("i").innerText = "play_arrow"
     mainAudio.pause()
 };
 // play or pause music button event
@@ -50,5 +52,7 @@ playpaueBtn.addEventListener("click", ()=>{
 
     isMusicPaused ? pauseMusic() : playMusic()
     
-})
+});
+
+//  Next song button 
 
