@@ -24,6 +24,8 @@ function loadMusic(IndexNum){
     mainAudio.src = `songs/${allMusic[IndexNum - 1].src}.mp3`;
 
 
+
+
 }; 
 
 
@@ -32,14 +34,21 @@ function loadMusic(IndexNum){
 function playMusic(){
     container.classList.add('paused');
     mainAudio.play()
-}
+};
 
+// Playing music function 
+
+function pauseMusic(){
+    container.classList.add('paused');
+    mainAudio.pause()
+};
 // play or pause music button event
 
 playpaueBtn.addEventListener("click", ()=>{
 
-    const isMusicPaused = container.classList.contains("pasued");
+    const isMusicPaused = container.classList.contains("paused");
 
     isMusicPaused ? pauseMusic() : playMusic()
+    
 })
 
