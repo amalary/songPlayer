@@ -4,7 +4,8 @@ const container = document.querySelector(".container"),
 musicImg = container.querySelector(".img-area img"),
 musicName = container.querySelector(".song-details .name"),
 musicArtist = container.querySelector(".song-details .artist"),
-musicAudio = container.querySelector("#main-audio"); 
+mainAudio = container.querySelector("#main-audio"); 
+playpaueBtn = container.querySelector(".play-pause")
 
 
 let musicIndex = 6; 
@@ -20,8 +21,25 @@ function loadMusic(IndexNum){
     musicName.innerText = allMusic[IndexNum - 1].name;
     musicArtist.innerText = allMusic[IndexNum - 1].artist;
     musicImg.src = `images/${allMusic[IndexNum - 1].img}.jpg`;
-    musicAudio.src = `songs/${allMusic[IndexNum - 1].src}.mp3`;
+    mainAudio.src = `songs/${allMusic[IndexNum - 1].src}.mp3`;
 
 
+}; 
+
+
+// Playing music function 
+
+function playMusic(){
+    container.classList.add('paused');
+    mainAudio.play()
 }
+
+// play or pause music button event
+
+playpaueBtn.addEventListener("click", ()=>{
+
+    const isMusicPaused = container.classList.contains("pasued");
+
+    isMusicPaused ? pauseMusic() : playMusic()
+})
 
