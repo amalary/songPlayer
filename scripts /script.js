@@ -5,10 +5,12 @@ musicImg = container.querySelector(".img-area img"),
 musicName = container.querySelector(".song-details .name"),
 musicArtist = container.querySelector(".song-details .artist"),
 mainAudio = container.querySelector("#main-audio"); 
-playpaueBtn = container.querySelector(".play-pause")
+playpauseBtn = container.querySelector(".play-pause"),
+nextBtn = container.querySelector("#next"),
+prevBtn = container.querySelector("#prev")
 
 
-let musicIndex = 6; 
+let musicIndex = 1; 
 
 window.addEventListener("load", ()=> {
     loadMusic(musicIndex)
@@ -33,20 +35,38 @@ function loadMusic(IndexNum){
 
 function playMusic(){
     container.classList.add('paused');
-    playpaueBtn.querySelector("i").innerText = "pause"
+    playpauseBtn.querySelector("i").innerText = "pause"
     mainAudio.play()
 };
 
-// Playing music function 
+// Pausing music function 
 
 function pauseMusic(){
     container.classList.remove('paused');
-    playpaueBtn.querySelector("i").innerText = "play_arrow"
+    playpauseBtn.querySelector("i").innerText = "play_arrow"
     mainAudio.pause()
 };
+
+// Next song function
+
+function nextMusic(){
+    musicIndex++; // musicIdex increments by 1 
+    loadMusic(musicIndex);
+    playMusic(); 
+
+}
+
+// Prev song function
+
+function prevMusic(){
+    musicIndex--; // musicIdex decrements by 1 
+    loadMusic(musicIndex);
+    playMusic(); 
+
+}
 // play or pause music button event
 
-playpaueBtn.addEventListener("click", ()=>{
+playpauseBtn.addEventListener("click", ()=>{
 
     const isMusicPaused = container.classList.contains("paused");
 
@@ -54,5 +74,16 @@ playpaueBtn.addEventListener("click", ()=>{
     
 });
 
-//  Next song button 
+//  Next song button
+
+nextBtn.addEventListener("click", ()=>{
+    nextMusic()
+})
+
+// Prev song button 
+
+prevBtn.addEventListener("click", ()=>{
+    prevMusic()
+
+})
 
