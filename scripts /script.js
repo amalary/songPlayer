@@ -51,6 +51,8 @@ function pauseMusic(){
 
 function nextMusic(){
     musicIndex++; // musicIdex increments by 1 
+    // If music index is greater than the length of the array then the index will be set back to one 
+    musicIndex > allMusic.length ? musicIndex = 1 : musicIndex = musicIndex;
     loadMusic(musicIndex);
     playMusic(); 
 
@@ -60,6 +62,8 @@ function nextMusic(){
 
 function prevMusic(){
     musicIndex--; // musicIdex decrements by 1 
+     // If music index is less than the length of the array then the index will be set back to one 
+    musicIndex < 1 ? musicIndex = allMusic.length : musicIndex = musicIndex;
     loadMusic(musicIndex);
     playMusic(); 
 
