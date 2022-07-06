@@ -7,7 +7,8 @@ musicArtist = container.querySelector(".song-details .artist"),
 mainAudio = container.querySelector("#main-audio"); 
 playpauseBtn = container.querySelector(".play-pause"),
 nextBtn = container.querySelector("#next"),
-prevBtn = container.querySelector("#prev")
+prevBtn = container.querySelector("#prev"),
+progressBar = container.querySelector(".progress-bar")
 
 
 let musicIndex = 1; 
@@ -56,7 +57,7 @@ function nextMusic(){
     loadMusic(musicIndex);
     playMusic(); 
 
-}
+};
 
 // Prev song function
 
@@ -67,7 +68,7 @@ function prevMusic(){
     loadMusic(musicIndex);
     playMusic(); 
 
-}
+};
 // play or pause music button event
 
 playpauseBtn.addEventListener("click", ()=>{
@@ -82,12 +83,20 @@ playpauseBtn.addEventListener("click", ()=>{
 
 nextBtn.addEventListener("click", ()=>{
     nextMusic()
-})
+});
 
 // Prev song button 
 
 prevBtn.addEventListener("click", ()=>{
     prevMusic()
 
-})
+});
 
+// Update progressbar as song plays 
+
+mainAudio.addEventListener("timeupdate", (e) =>{
+    const currentTime = e.target.currentTime; //getting time of song as it's being played 
+    const duration = e.target.duration // Getting the suration time of a whole song 
+    let progressWidth = (currentTime /duration) * 100; 
+    progressBar.style.width = `${progressWidth}%`
+})
