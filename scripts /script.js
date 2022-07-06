@@ -8,6 +8,7 @@ mainAudio = container.querySelector("#main-audio");
 playpauseBtn = container.querySelector(".play-pause"),
 nextBtn = container.querySelector("#next"),
 prevBtn = container.querySelector("#prev"),
+progressArea = container.querySelector(".progress-area"),
 progressBar = container.querySelector(".progress-bar")
 
 
@@ -98,5 +99,50 @@ mainAudio.addEventListener("timeupdate", (e) =>{
     const currentTime = e.target.currentTime; //getting time of song as it's being played 
     const duration = e.target.duration // Getting the suration time of a whole song 
     let progressWidth = (currentTime /duration) * 100; 
-    progressBar.style.width = `${progressWidth}%`
+    progressBar.style.width = `${progressWidth}%`;
+
+    let musicCurrentTime = container.querySelector(".current-time"),
+    musicDuration = container.querySelector(".max-duration");
+    mainAudio.addEventListener("loadeddata", ()=>{
+
+    // update song total duration 
+
+    let mainAdDuration = mainAudio.duration; 
+    let totalMin = Math.floor(mainAdDuration / 60);
+    let totalSec = Math.floor(mainAdDuration % 60); 
+
+    if(totalSec < 10 ){ // if total sec is less than 10 add a 0 before it 
+        totalSec = `0${totalSec}`; 
+    }
+    musicDuration.innerText = `${totalMin}:${totalSec}`;
+
+    });
+
+     // update song current duration
+    
+    let currentMin = Math.floor(currentTime / 60);
+    let currentSec = Math.floor(currentTime % 60); 
+
+     if(currentSec < 10 ){ // if total sec is less than 10 add a 0 before it 
+        currentSec = `0${currentSec}`; 
+    }
+    musicCurrentTime.innerText = `${currentMin}:${currentSec}`;
+
+    });
+
+// update playing song current time as the song progresses 
+    
+
+progressArea.addEventListener("click", (e)=>{
+
+    let progressWidth = progressArea.clientWidth // getting width of progress bar 
+    let clickedOffsetX = e.offsetX; // grabbing the offset value of x 
+    let songDuration = mainAudio.duration; // getting the totalt song duration 
+
+    mainAudio.currentTime = (clickedOffsetX / progressWidth) * songDuration; 
+    playMusic();
+
 })
+    
+
+
