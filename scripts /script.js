@@ -172,6 +172,37 @@ repeatBtn.addEventListener("click", ()=>{
 
 });
 
-// 
+// Above button is changed now working on after song is finished 
+
+mainAudio.addEventListener("ended", ()=>{
+
+    let getText = repeatBtn.innerText; //getting tags innerText 
+
+    switch(getText){
+        case "repeat":
+            nextMusic() //calling the nextMusic function 
+            break; 
+
+        
+        case "repeat_one":
+            mainAudio.currentTime = 0; // This sets the current time of the song to 0 
+            loadMusic(musicIndex);
+            playMusic(); //after loading the song youre now able to play it 
+            break;
+        case "shuffle":
+            let randIndex = Math.floor((Math.random() * allMusic.length) + 1); 
+
+            do{
+                randIndex = Math.floor((Math.random() * allMusic.length) + 1); 
+            }while (musicIndex == randIndex) // Loop will run until the next random interger is not the same as the current one in musicIdex 
+            musicIndex = randIndex // MusicIdex will now be set to the value of randIndex 
+            loadMusic(musicIndex)
+            playMusic();
+            break;
+                
+    }
+
+    
+})
 
 
