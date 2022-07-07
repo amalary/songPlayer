@@ -142,7 +142,36 @@ progressArea.addEventListener("click", (e)=>{
     mainAudio.currentTime = (clickedOffsetX / progressWidth) * songDuration; 
     playMusic();
 
-})
-    
+}); 
+
+
+// change the loop, shuffle, and repat icon onclick
+
+const repeatBtn = container.querySelector("#repeat-plist");
+
+repeatBtn.addEventListener("click", ()=>{
+
+    let getText = repeatBtn.innerText //grabbing the tag innerText 
+
+    switch(getText){
+        case "repeat":
+            repeatBtn.innerText = "repeat_one"; 
+            repeatBtn.setAttribute("title", "song looped");
+            break;
+        
+        case "repeat_one":
+            repeatBtn.innerText = "shuffle"; 
+            repeatBtn.setAttribute("title", "playback shuffled");
+            break;
+        case "shuffle":
+            repeatBtn.innerText = "repeat"; 
+            repeatBtn.setAttribute("title", "Playlist looped");
+            break;
+                
+    }
+
+});
+
+// 
 
 
