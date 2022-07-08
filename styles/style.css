@@ -230,7 +230,7 @@ ul li {
     background-blend-mode:screen;
     transition: all 0.15s ease-in-out;
 }
-.music-list .show{
+.music-list.show{
     bottom: 0;
     opacity: 1;
     pointer-events: auto;

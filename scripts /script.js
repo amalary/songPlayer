@@ -9,7 +9,15 @@ playpauseBtn = container.querySelector(".play-pause"),
 nextBtn = container.querySelector("#next"),
 prevBtn = container.querySelector("#prev"),
 progressArea = container.querySelector(".progress-area"),
-progressBar = container.querySelector(".progress-bar")
+progressBar = container.querySelector(".progress-bar"),
+musicList = container.querySelector(".music-list"),
+moreMusicBtn = container.querySelector("#more-music"),
+closeMusicBtn = container.querySelector("#close");
+
+moreMusicBtn.addEventListener("click",() => {
+    musicList.classList.toggle("show");
+})
+
 
 
 let musicIndex = 1; 
@@ -201,8 +209,12 @@ mainAudio.addEventListener("ended", ()=>{
             break;
                 
     }
-
-    
 })
+
+//Display the music list 
+
+
+
+
 
 
