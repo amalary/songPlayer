@@ -292,6 +292,9 @@ ul li .audio-duration{
     color: #515c6f
 
 }
+#close:hover{
+    color:#0e9fff;
+}
 
 .music-list ul::-webkit-scrollbar{
     width: 0;
