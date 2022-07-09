@@ -230,24 +230,10 @@ for(let i = 0; i < allMusic.length; i++){
     <audio class = "${allMusic[i].src}" src ="songs/${allMusic[i].src}.mp3" ></audio>
     <span id = "${allMusic[i].src}" class="audio-duration">1:45</span>
 </li>`
-ulTag.insertAdjacentHTML("beforeend", liTag)
+ulTag.insertAdjacentHTML("beforeend", liTag);
 
-letAudioDurationTag = ulTag.querySelector(`#${allMusic[i].src}`)
-
-let liAudioTag = ulTag.querySelector(`.${allMusic[i].src}`)
-
-liAudioTag.addEventListener("loadeddata", () => {
-
-    let duration = mainAudio.duration; 
-    let totalMin = Math.floor(duration / 60);
-    let totalSec = Math.floor(duration % 60); 
-
-    if(totalSec < 10 ){ // if total sec is less than 10 add a 0 before it 
-        totalSec = `0${totalSec}`; 
-    }
-    letAudioDurationTag.innerText = `${totalMin}:${totalSec}`;
-
-})
+    let liAudioDurationTag = ulTag.querySelector(`#${allMusic[i].src}`);
+    // let liAudioTag = ulTag.querySelector(`.$`)
 }
 
 
