@@ -221,19 +221,38 @@ closeMusicBtn.addEventListener("click",() => {
 // li tags according to the length of the allMusic array 
 const ulTag = container.querySelector("ul");
 
-for(let i = 0; i < allMusic.length; i++){
-    let liTag = ` <li>
+for(let i = 0; i <allMusic.length; i++){
+    let liTag = 
+    `<li>
     <div class="row">
         <span>${allMusic[i].name}</span>
         <p>${allMusic[i].artist}</p>
     </div>
     <audio class = "${allMusic[i].src}" src ="songs/${allMusic[i].src}.mp3" ></audio>
     <span id = "${allMusic[i].src}" class="audio-duration">1:45</span>
-</li>`
+    </li>`;
+
 ulTag.insertAdjacentHTML("beforeend", liTag);
 
     let liAudioDurationTag = ulTag.querySelector(`#${allMusic[i].src}`);
-    // let liAudioTag = ulTag.querySelector(`.$`)
+    let liAudioTag = ulTag.querySelector(`.${allMusic[i].src}`);
+
+    liAudioTag.addEventListener("loadeddata", () =>{
+
+    let duration = liAudioTag.duration; 
+    let totalMin = Math.floor(duration / 60);
+    let totalSec = Math.floor(duration % 60); 
+
+    if(totalSec < 10 ){ // if total sec is less than 10 add a 0 before it 
+        totalSec = `0${totalSec}`; 
+    }
+    liAudioDurationTag.innerText = `${totalMin}:${totalSec}`;
+
+
+    });
+
+    
+
 }
 
 
