@@ -19,7 +19,8 @@ closeMusicBtn = container.querySelector("#close");
 let musicIndex = 1; 
 
 window.addEventListener("load", ()=> {
-    loadMusic(musicIndex)
+    loadMusic(musicIndex);
+    songPlaying();
 }); 
 
 // Function to load the music 
@@ -221,7 +222,7 @@ const ulTag = container.querySelector("ul");
 for(let i = 0; i < allMusic.length; i++){
     let liTag =
     `
-    <li li-index = "${i}">
+    <li li-index = "${i + 1}">
     <div class="row">
         <span>${allMusic[i].name}</span>
         <p>${allMusic[i].artist}</p>
@@ -262,25 +263,33 @@ for(let i = 0; i < allMusic.length; i++){
 
 const allLiTags = ulTag.querySelectorAll('li'); 
 
-for( let j = 0; j < allLiTags.length; j++){// on click attribute added to all of the li tags 
+function songPlaying(){
+    for( let j = 0; j < allLiTags.length; j++){// on click attribute added to all of the li tags 
 
-    //if there is an li tag that has an index equal to the musicIndex 
-    //then this music is playing now and we can style it 
+        //Have to remove playing tag from li after picking a new song 
+        if(allLiTags[j].classList.contains("playing")){
+            allLiTags[j].classList.remove("playing")
+        }
 
-    if(allLiTags[j].getAttribute("li-index") == musicIndex){
-        allLiTags[j].classList.add("playing")
-    }
-
-    allLiTags[j].setAttribute("onclick", "clicked(this)")
-};
+        //if there is an li tag that has an index equal to the musicIndex 
+        //then this music is playing now and we can style it 
+    
+        if(allLiTags[j].getAttribute("li-index") == musicIndex){
+            allLiTags[j].classList.add("playing")
+        }
+    
+        allLiTags[j].setAttribute("onclick", "clicked(this)")
+    };
+}
 
 function clicked(element){
     // grab the index of a song clicked to then be played 
 
     let getLiIndex = element.getAttribute("li-index"); 
-     musicIndex = getLiIndex //passing the index of the element clicked as the musicIndex 
+        musicIndex = getLiIndex //passing the index of the element clicked as the musicIndex 
     loadMusic(musicIndex);
     playMusic();
+    songPlaying()
 }
 
 
