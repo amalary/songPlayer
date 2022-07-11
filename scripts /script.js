@@ -226,11 +226,15 @@ for (let i = 0; i < allMusic.length; i++){
         <span>${allMusic[i].name}</span>
         <p>${allMusic[i].artist}</p>
     </div>
-    <audio id = "${allMusic[i].src}" src ="songs/${allMusic[i].src}" ></audio>
-    <span class="audio-duration">1:45</span>
+    <audio class = "${allMusic[i].src}" src ="songs/${allMusic[i].src}.mp3" ></audio>
+    <span id = "${allMusic[i].src} "class="audio-duration">1:45</span>
     </li>`;
 
-    ulTag.insertAdjacentHTML("beforeend", liTag)
+    ulTag.insertAdjacentHTML("beforeend", liTag);
+
+    let liAudioDurationTag = ulTag.querySelector(`#${allMusic[i].src}`);
+    let liAudioTag = ulTag.querySelector(`.${allMusic[i].src}`); 
+
 }
 
 
