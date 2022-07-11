@@ -274,7 +274,14 @@ for( let j = 0; j < allLiTags.length; j++){// on click attribute added to all of
     allLiTags[j].setAttribute("onclick", "clicked(this)")
 };
 
+function clicked(element){
+    // grab the index of a song clicked to then be played 
 
+    let getLiIndex = element.getAttribute("li-index"); 
+     musicIndex = getLiIndex //passing the index of the element clicked as the musicIndex 
+    loadMusic(musicIndex);
+    playMusic();
+}
 
 
 
