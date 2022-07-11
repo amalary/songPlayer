@@ -218,24 +218,63 @@ closeMusicBtn.addEventListener("click",() => {
 
 const ulTag = container.querySelector("ul");
 
-for (let i = 0; i < allMusic.length; i++){
-    let liTag = `
-
-    <li>
+for(let i = 0; i < allMusic.length; i++){
+    let liTag =
+    `
+    <li li-index = "${i}">
     <div class="row">
         <span>${allMusic[i].name}</span>
         <p>${allMusic[i].artist}</p>
     </div>
     <audio class = "${allMusic[i].src}" src ="songs/${allMusic[i].src}.mp3" ></audio>
-    <span id = "${allMusic[i].src} "class="audio-duration">1:45</span>
+    <span id = "${allMusic[i].src}" class="audio-duration">1:45</span>
     </li>`;
+
 
     ulTag.insertAdjacentHTML("beforeend", liTag);
 
-    let liAudioDurationTag = ulTag.querySelector(`#${allMusic[i].src}`);
-    let liAudioTag = ulTag.querySelector(`.${allMusic[i].src}`); 
+
+
+
+    // let liAudioDurationTag = ulTag.querySelector(`#${allMusic[i].src}`);
+    // let liAudioTag = ulTag.querySelector(`.${allMusic[i].src}`);
+    
+    //Fix this feature after the project is over 
+
+
+    // liAudioTag.addEventListener("loadeddata", ()=>{
+
+    // let duration = liAudioTag.duration; 
+    // let totalMin = Math.floor(duration / 60);
+    // let totalSec = Math.floor(duration % 60); 
+
+    // if(totalSec < 10 ){ // if total sec is less than 10 add a 0 before it 
+    //     totalSec = `0${totalSec}`; 
+    // }
+    // liAudioDurationTag.innerText = `${totalMin}:${totalSec}`;
+
+    // })
 
 }
+
+
+// Playing a specific song from the music list 
+
+const allLiTags = ulTag.querySelectorAll('li'); 
+
+for( let j = 0; j < allLiTags.length; j++){// on click attribute added to all of the li tags 
+
+    //if there is an li tag that has an index equal to the musicIndex 
+    //then this music is playing now and we can style it 
+
+    if(allLiTags[j].getAttribute("li-index") == musicIndex){
+        allLiTags[j].classList.add("playing")
+    }
+
+    allLiTags[j].setAttribute("onclick", "clicked(this)")
+};
+
+
 
 
 
