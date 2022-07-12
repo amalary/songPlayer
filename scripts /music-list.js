@@ -1,43 +1,67 @@
 let allMusic = [
 
     {
-        name:"Too Much",
+        name:"As It Was",
+        artist:"Harry Styles",
+        img:"harryStyles",
+        src: "As It Was",
+    },
+    {
+        name:"First Class",
+        artist:"Jack Harlow",
+        img:"jackHarlow",
+        src: "First Class",
+    },
+    {
+        name:"About Damn Time",
+        artist:"Lizzo",
+        img:"lizzo",
+        src: "About Damn TIme",
+    },
+    {
+        name:"Running Up That Hill",
+        artist:"Kate Bush",
+        img:"kateBush",
+        src: "Running Up That Hill",
+    },
+    {
+        name:"Wait For You",
+        artist:"Future",
+        img:"future",
+        src: "Wait For You",
+    },
+    {
+        name:"Jimmy Crooks",
         artist:"Drake",
-        img:"drakeCoverArt",
-        src: "Intro",
+        img:"drake",
+        src: "Jimmy Crooks",
     },
     {
-        name:"Made Bail",
-        artist:"Bas",
-        img:"bas",
-        src: "All Alone",
+        name:"Me Porto Bonito",
+        artist:"Bad Bunny",
+        img:"badBunny",
+        src: "Me Porto Bonito",
     },
     {
-        name:"Shoutout",
-        artist:"Cousin Stizz",
-        img:"cousinStizz",
-        src: "Love Me",
+        name:"Heat Waves",
+        artist:"Glass Animals",
+        img:"glassAnimals",
+        src: "Heat Waves",
     },
     {
-        name:"Alright",
-        artist:"Kendrick Lamar",
-        img:"kendrickCover",
-        src: "Late Night",
+        name:"Break My Soul",
+        artist:"Beyonce",
+        img:"beyonce",
+        src: "Break My Soul",
     },
     {
-        name:"Runaway",
-        artist:"Kanye West",
-        img:"kanyeCover",
-        src: "Will",
-    },
-    {
-        name:"KOD",
-        artist:"J.Cole",
-        img:"kodCoverArt",
-        src: "Special",
+        name:"Big Energy",
+        artist:"Latto",
+        img:"latto",
+        src: "Big Energy",
     },
 
 ]
 
 
-
+console.log(allMusic.length)

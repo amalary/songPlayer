@@ -228,7 +228,7 @@ for(let i = 0; i < allMusic.length; i++){
         <p>${allMusic[i].artist}</p>
     </div>
     <audio class = "${allMusic[i].src}" src ="songs/${allMusic[i].src}.mp3" ></audio>
-    <span id = "${allMusic[i].src}" class="audio-duration">1:45</span>
+    <span id = "${allMusic[i].src}" class="audio-duration"></span>
     </li>`;
 
 
@@ -266,9 +266,12 @@ const allLiTags = ulTag.querySelectorAll('li');
 function songPlaying(){
     for( let j = 0; j < allLiTags.length; j++){// on click attribute added to all of the li tags 
 
+        // let audioTag = allLiTags.querySelector(".audio-duration")
+
         //Have to remove playing tag from li after picking a new song 
         if(allLiTags[j].classList.contains("playing")){
-            allLiTags[j].classList.remove("playing")
+            allLiTags[j].classList.remove("playing");
+            // audioTag.innerText = ""; 
         }
 
         //if there is an li tag that has an index equal to the musicIndex 
@@ -276,6 +279,7 @@ function songPlaying(){
     
         if(allLiTags[j].getAttribute("li-index") == musicIndex){
             allLiTags[j].classList.add("playing")
+            // audioTag.innerText = "Playing"; 
         }
     
         allLiTags[j].setAttribute("onclick", "clicked(this)")
